@@ -21,7 +21,7 @@ const knightsTour = (boardSize) => {
     y < boardSize &&
     chessboard[x][y] === 0;
 
-  const solveTour = (board, x, y, moveCount) => {
+  const solveTour = (chessboard, x, y, moveCount) => {
     if (boardSize * boardSize === moveCount) {
       return true;
     }
@@ -29,6 +29,8 @@ const knightsTour = (boardSize) => {
       const nextX = x + move[0];
       const nextY = y + move[1];
       if (isValidMove(nextX, nextY)) {
+        chessboard[nextX][nextY] = ++moveCount;
+        
       }
     }
   };
@@ -43,7 +45,7 @@ const knightsTour = (boardSize) => {
 
 const chessboard = [
   [1, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
+  [0, 0, 2, 0, 0],
   [0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0],
