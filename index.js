@@ -30,9 +30,13 @@ const knightsTour = (boardSize) => {
       const nextY = y + move[1];
       if (isValidMove(nextX, nextY)) {
         chessboard[nextX][nextY] = ++moveCount;
-        
+        if (solveTour(chessboard, nextX, nextY, ++moveCount)) {
+          return true;
+        }
+        chessboard[nextX][nextY] = 0;
       }
     }
+    return false;
   };
 
   solveTour(chessboard, 0, 0, 1);
