@@ -29,8 +29,8 @@ const knightsTour = (boardSize) => {
       const nextX = x + move[0];
       const nextY = y + move[1];
       if (isValidMove(nextX, nextY)) {
-        chessboard[nextX][nextY] = ++moveCount;
-        if (solveTour(chessboard, nextX, nextY, ++moveCount)) {
+        chessboard[nextX][nextY] = moveCount++;
+        if (solveTour(chessboard, nextX, nextY, moveCount++)) {
           return true;
         }
         chessboard[nextX][nextY] = 0;
