@@ -44,6 +44,8 @@ const knightsTour = (boardSize) => {
   return chessboard;
 };
 
+console.log(knightsTour(5));
+
 /*
 
 
