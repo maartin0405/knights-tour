@@ -1,5 +1,5 @@
 const knightsTour = (boardSize) => {
-  const chessboard = new Array(boardSize)
+  let chessboard = new Array(boardSize)
     .fill(0)
     .map(() => new Array(boardSize).fill(0));
 
@@ -22,6 +22,7 @@ const knightsTour = (boardSize) => {
     chessboard[x][y] === 0;
 
   const solveTour = (board, x, y, moveCount) => {
+    board[x][y] = moveCount;
     if (boardSize * boardSize === moveCount) {
       return true;
     }
@@ -29,7 +30,6 @@ const knightsTour = (boardSize) => {
       const nextX = x + move[0];
       const nextY = y + move[1];
       if (isValidMove(nextX, nextY)) {
-        board[nextX][nextY] = moveCount + 1;
         if (solveTour(board, nextX, nextY, moveCount + 1)) {
           return true;
         }
